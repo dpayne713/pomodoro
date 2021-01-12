@@ -41,10 +41,10 @@ const origional = {
 }
 
 const audio = {
-    pomodoro : new Howl({src : ['/public/assets/audio/pomodoro.mp3']}), 
-    start : new Howl({src : ['/public/assets/audio/start.mp3']}),
-    shortBreak : new Howl({src : ['/public/assets/audio/short-break.mp3']}),
-    longBreak : new Howl({src : ['/public/assets/audio/long-break.mp3']}),
+    pomodoro : new Howl({src : ['/assets/audio/pomodoro.mp3']}), 
+    start : new Howl({src : ['/assets/audio/start.mp3']}),
+    shortBreak : new Howl({src : ['/assets/audio/short-break.mp3']}),
+    longBreak : new Howl({src : ['/assets/audio/long-break.mp3']}),
 }
 
 // General Functionality Listners // 
