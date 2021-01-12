@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./public/assets/favicon-32x32.png">
+  <link rel="stylesheet" href="./public/stylesheets/style.css">
+  <script src="https://kit.fontawesome.com/ea7a226074.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js"></script>
+  <title>Pomodoro app</title>
+</head>
+<body>
+
+    <div class="background">
+
+        <div class="counter">
+            <div class="counter__main">
+                <div class="counter__main-headline">
+                    <img src="./public/assets/logo.svg" alt="Pomodoro logo">
+                </div>
+                <div class="counter__main-choices">
+                    <input type="radio" name="current" value="pomadoro" class="counter__main-choices-selection" id="POMADORO" checked>
+                    <label for="POMADORO" class="counter__main-choices-label" id="POMADORO-LABEL">pomodoro</label>
+                    <input type="radio" name="current" value="short break" class="counter__main-choices-selection" id="SHORT-BREAK">
+                    <label for="SHORT-BREAK" class="counter__main-choices-label" id="SHORT-BREAK-LABEL">short break</label>
+                    <input type="radio" name="current" value="long break" class="counter__main-choices-selection" id="LONG-BREAK">
+                    <label for="LONG-BREAK" class="counter__main-choices-label" id="LONG-BREAK-LABEL">long break</label>
+                </div>
+                <div class="counter__main-countdown">
+                    <div class="counter__main-countdown-OUTLINE"></div>
+                    <div class="counter__main-countdown-OUTLINE-INNER"></div>
+
+                    <div class="counter__main-countdown-RING" >
+                        <svg viewBox="0 0 100 100">
+                            <circle id="COUNTDOWN-RING" class="animate" cx="50" cy="50" r="40">
+                        </svg>
+                    </div>
+                    <div class="counter__main-countdown-READOUT">
+                        <input type="checkbox" name="pause" id="PAUSE" class="counter__main-countdown-READOUT-STATE-INPUT">
+
+                        <div class="counter__main-countdown-READOUT-TIME" id="READOUT-TIME">25:00</div>
+                        <label for="PAUSE" class="counter__main-countdown-READOUT-STATE" id="PAUSE-LABEL">pause</label>
+                        
+                    </div>
+                </div>
+                <div class="counter__main-settings">
+                    <button class="counter__main-settings-BUTTON" id="SETTINGS-OPEN">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"><path d="M26.965 17.682l-2.927-2.317c.055-.448.097-.903.097-1.365 0-.462-.042-.917-.097-1.365l2.934-2.317a.702.702 0 00.167-.896l-2.775-4.851a.683.683 0 00-.847-.301l-3.454 1.407a10.506 10.506 0 00-2.345-1.379l-.52-3.71A.716.716 0 0016.503 0h-5.55a.703.703 0 00-.687.588l-.52 3.71c-.847.357-1.63.819-2.345 1.379L3.947 4.27a.691.691 0 00-.847.301L.325 9.422a.705.705 0 00.167.896l2.927 2.317c-.055.448-.097.903-.097 1.365 0 .462.042.917.097 1.365L.492 17.682a.702.702 0 00-.167.896L3.1 23.429a.683.683 0 00.847.301L7.4 22.323a10.506 10.506 0 002.345 1.379l.52 3.71c.056.329.34.588.687.588h5.55a.703.703 0 00.687-.588l.52-3.71c.847-.357 1.631-.819 2.346-1.379l3.454 1.407c.313.119.673 0 .847-.301l2.775-4.851a.705.705 0 00-.167-.896zM13.73 18.9c-2.685 0-4.857-2.191-4.857-4.9 0-2.709 2.172-4.9 4.857-4.9 2.684 0 4.856 2.191 4.856 4.9 0 2.71-2.172 4.9-4.856 4.9z" opacity=".5"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="settings-grayBackground displayOFF" id="SETTINGS-BACKGROUND"></div>
+
+        <div class="settings hideBELOW" id="SETTINGS-BOX">
+            <div class="settings__header">
+                <h2 class="settings__header-h2">Settings</h2>
+                <button class="settings__header-button" id="SETTINGS-CLOSE">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"><path fill="#1E213F" fill-rule="evenodd" d="M11.95.636l1.414 1.414L8.414 7l4.95 4.95-1.414 1.414L7 8.414l-4.95 4.95L.636 11.95 5.586 7 .636 2.05 2.05.636 7 5.586l4.95-4.95z" opacity=".5"/></svg>
+                </button>
+            </div>
+            <div class="settings__choices">
+
+                <div class="settings__choices-headline">
+                    <h3 class="settings__choices-headline-h3">Time (minutes)</h3>
+                </div>
+
+                <div class="settings__choices-dropdowns" id="SETTINGS-DROPDOWNS">
+                    <div class="settings__choices-dropdowns-CHOICE">
+                        <label for="pomodoro-time" class="settings__choices-dropdowns-CHOICE-LABEL">
+                            pomodoro
+                        </label>
+                        <input class="settings__choices-dropdowns-CHOICE-INPUT" type="text" name="pomadoro-time" value="25" id="POMADORO-TIME"></input>
+                        <span class="settings__choices-dropdowns-CHOICE-INPUT-UP-ARROW" id="POMADORO-UP"><i class="fas fa-chevron-up" data-arrow="up"></i></span>
+                        <span class="settings__choices-dropdowns-CHOICE-INPUT-DOWN-ARROW" id="POMADORO-UP"><i class="fas fa-chevron-down" data-arrow="down"></i></span>
+                        
+                        
+                    </div>
+                    <div class="settings__choices-dropdowns-CHOICE">
+                        <label for="short-break-time" class="settings__choices-dropdowns-CHOICE-LABEL">
+                            short break
+                        </label>
+
+                        <input class="settings__choices-dropdowns-CHOICE-INPUT" type="number" name="short-break-time" value="5" id="SHORT-BREAK-TIME"></input>
+                        <span class="settings__choices-dropdowns-CHOICE-INPUT-UP-ARROW" id="SHORT-BREAK-UP"><i class="fas fa-chevron-up" data-arrow="up"></i></span>
+                        <span class="settings__choices-dropdowns-CHOICE-INPUT-DOWN-ARROW" id="SHORT-BREAK-UP"><i class="fas fa-chevron-down" data-arrow="down"></i></span>
+                        
+                    </div>
+                    <div class="settings__choices-dropdowns-CHOICE">
+                        <label for="long-break-time" class="settings__choices-dropdowns-CHOICE-LABEL">
+                            long break
+                        </label>
+
+                        <input class="settings__choices-dropdowns-CHOICE-INPUT" type="number" name="long-break-time" value="15" id="LONG-BREAK-TIME"></input>
+                        <span class="settings__choices-dropdowns-CHOICE-INPUT-UP-ARROW" id="LONG-BREAK-UP"><i class="fas fa-chevron-up" data-arrow="up"></i></span>
+                        <span class="settings__choices-dropdowns-CHOICE-INPUT-DOWN-ARROW" id="LONG-BREAK-UP"><i class="fas fa-chevron-down" data-arrow="down"></i></span>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings__font">
+                <div class="settings__font-label">
+                    <h3 class="settings__font-label-h3">font</h3>
+                </div>
+                <div class="settings__font-choices">
+                    <input type="radio" name="font" id="kumbh-sans" data-font="'Kumbh Sans', sans-serif" checked>
+                        <label for="kumbh-sans">Aa</label>
+                    <input type="radio" name="font" id="roboto-slab" data-font="'Roboto Slab', serif">
+                        <label for="roboto-slab">Aa</label>
+                    <input type="radio" name="font" id="space-mono" data-font="'Space Mono', monospace">
+                        <label for="space-mono">Aa</label>
+                </div>
+            </div>
+
+            <div class="settings__color">
+                <div class="settings__color-label">
+                    <h3 class="settings__color-label-h3">color</h3>
+                </div>
+                <div class="settings__color-choices">
+                    <input type="radio" name="color" id="redish-orange" data-hexcolor="#F87070" checked>
+                        <label for="redish-orange"><i class="fas fa-check"></i></label>
+                    <input type="radio" name="color" id="neon-green" data-hexcolor="#70F3F8">
+                        <label for="neon-green"><i class="fas fa-check"></i></label>
+                    <input type="radio" name="color" id="light-purple" data-hexcolor="#D881F8">
+                        <label for="light-purple"><i class="fas fa-check"></i></label>
+                </div>
+            </div>
+        
+
+            <button class="settings__submit" id="SETTINGS-APPLY">Apply</button>
+        </div>
+    </div>
+
+    <script src="./public/js/script.js"></script>
+</body>
+</html>
