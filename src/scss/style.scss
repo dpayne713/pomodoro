@@ -120,7 +120,7 @@ body {
             
             &-label {
                 height: 4.8rem; 
-                width: 12rem; 
+                width: 11.9rem; 
                 display: flex; 
                 align-items: center;
                 justify-content: center;
@@ -128,6 +128,7 @@ body {
                 border-radius: 100rem;
 
                 font-size: 1.4rem;
+                line-height: 4.8rem;
                 font-weight: 700;
                 text-transform: lowercase;
                 color: var(--light-gray); 
@@ -228,26 +229,28 @@ body {
                 top: 50%; 
                 left: 50%; 
                 transform: translate(-50%, -50%); 
-                height: fit-content; 
-                width: fit-content; 
+                height: 11rem; 
+                width:  25.6rem; 
                 display: flex; 
                 flex-direction: column;
                 align-items: center;
-                justify-content: center;
+                justify-content: space-between; 
                 text-align: center;
 
 
                 
                 &-TIME {
                     font-size: 10rem;
+                    line-height: 10rem;
                     font-weight: 700;
                     // line-height: 10.1rem;
                     color: var(--off-white); 
                     letter-spacing: -.5rem;
-                    margin: 4rem 0 2rem 0 ;
+                    // margin: 4rem 0 2rem 0 ;
 
                     @media screen and (max-width: 650px) {
                         font-size: 8rem;
+                        line-height: 8rem;
                         font-weight: 700;
                         letter-spacing: -.4rem;
                         // line-height: 10.1rem;
@@ -783,7 +786,6 @@ body {
         }
     }
 
-
     &-grayBackground {
         position: absolute; 
         top: 0; 
@@ -795,13 +797,10 @@ body {
         background-color: black;
         opacity: .5; 
 
-        
         @media screen and (max-width: 650px ) {
             height: 100%; 
         }
-
     }
-
 }
 
 .displayOFF {
